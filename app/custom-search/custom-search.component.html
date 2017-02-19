@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="input-group col-md-8">                    
+                    <input 
+                    name="search"
+                    #textoProcurado 
+                    (keyup)="0" 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Filtrar pelo título da foto"
+                    [(ngModel)]="search"
+                    (ngModelChange)="valueChange($event)" />
+                </div>
+            </form>    
+        </div>
+    </div>
+    <br />
+
+    <div class="row" *ngIf="checkOptionsList">
+
+        <div class="col-md-2">
+            <ul>
+                <li *ngFor="let airport of listCountries">
+                    <a href="#" (click)="setName(airport)">{{airport.name}}</a>
+                </li>
+                <li> ----- </li>
+                <li *ngFor="let air of filterAirports">
+                    <a href="#" (click)="clickAirportCode(air)">{{air.name}}</a>
+                </li>
+            </ul>
+
+            
+        </div>
+
+    </div>
+</div>
